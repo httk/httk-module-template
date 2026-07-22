@@ -21,7 +21,9 @@ python -m pip install -e .
 ## Usage example
 
 ```python
-from httk-[placeholder] import [placeholder]
+from httk.[placeholder] import hello_world
+
+hello_world()
 ```
 
 ```{toctree}

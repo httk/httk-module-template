@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "httk module providing placeholder functionality."
 readme = "README.md"
 license = "AGPL-3.0+"
-requires-python = ">=3.11"
+requires-python = ">=3.12"
 authors = [{ name = "Rickard Armiento", email = "gitcommits@armiento.net" }]
 dependencies = [
   "httk-core @ git+https://github.com/httk/httk-core",
@@ -29,7 +29,6 @@ classifiers = [
 [project.optional-dependencies]
 dev = [
   "pytest>=8.0",
-  "httpx>=0.27",
   "black",
   "ruff",
   "isort",
@@ -53,6 +52,9 @@ package-dir = {"" = "src"}
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[tool.setuptools.package-data]
+"httk.placeholder" = ["py.typed"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 
@@ -60,22 +62,22 @@ testpaths = ["tests"]
 profile = "black"
 
 [tool.ruff]
-target-version = "py311"
+target-version = "py312"
 src = ["src", "examples"]
 
 [tool.black]
-target-version = ["py311"]
+target-version = ["py312"]
 line-length = 120
 skip-string-normalization = true
 
 [tool.pyright]
-pythonVersion = "3.11"
+pythonVersion = "3.12"
 include = ["src", "examples"]
 extraPaths = ["src"]  
 reportMissingImports = true
 
 [tool.mypy]
-python_version = "3.11"
+python_version = "3.12"
 files = ["src", "examples"]
 mypy_path = ["src"]
 namespace_packages = true
