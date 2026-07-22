@@ -1,3 +1,4 @@
+import os
 import warnings
 from datetime import date
 
@@ -68,9 +69,20 @@ html_theme_options = {
     "navigation_with_keys": True,
 }
 
-# Optional: helpful external linking (edit as needed)
+# External references resolve against inventories vendored in docs/_inventories/
+# so docs builds need no network access; link targets still point at the live
+# sites. Refresh the committed inventories with `make docs-inventories`.
+#
+# When this module cross-references public objects from another httk
+# distribution (e.g. httk.core), add it here against the published httk docs
+# site. The base URL comes from the DOCS_BASE_URL Makefile variable (exported as
+# HTTK_DOCS_BASE_URL); the default below keeps bare sphinx invocations working.
+# Vendor each dependency inventory alongside python.inv, for example:
+#     "httk-core": (f"{_docs_base_url}/httk-core/", "_inventories/httk-core.inv"),
+_docs_base_url = os.environ.get("HTTK_DOCS_BASE_URL", "https://docs.httk.org")
+
 intersphinx_mapping = {
-    "python": ("https://docs.python.org/3", None),
+    "python": ("https://docs.python.org/3", "_inventories/python.inv"),
 }
 
 autoapi_options = [
