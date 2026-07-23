@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "httk-placeholder"
 version = "0.1.0"
-description = "httk module providing placeholder functionality."
+description = "httk₂ module providing placeholder functionality."
 readme = "README.md"
 license = "AGPL-3.0-or-later"
 license-files = ["LICENSE"]

@@ -1,6 +1,9 @@
 # *httk-[placeholder]*
 
-*httk-[placeholder]* is a *httk v2* module providing [placeholder functionality].
+This site documents specifically the *httk-[placeholder]* module. For the full
+documentation of *httk₂* as a whole, see [docs.httk.org](https://docs.httk.org).
+
+*httk-[placeholder]* is a *httk₂* module providing [placeholder functionality].
 
 ```{admonition} Quick links
 :class: tip
