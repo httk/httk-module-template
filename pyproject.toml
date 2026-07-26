@@ -59,6 +59,7 @@ release = [
   "build>=1.2",
   "twine>=6.0",
 ]
+default = []
 
 [tool.setuptools]
 package-dir = {"" = "src"}
