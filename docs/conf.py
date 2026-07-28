@@ -62,6 +62,10 @@ myst_heading_anchors = 3
 
 # myst-nb config: don't execute notebooks during docs build by default
 nb_execution_mode = "off"
+# Cells default to myst-nb's 30 s timeout, which sits too close to the legitimate
+# runtime of the heavier example notebooks under machine load; the timeout's job
+# is to catch hangs, not to benchmark, so give it generous headroom.
+nb_execution_timeout = 300
 
 html_theme = "furo"
 html_theme_options = {
