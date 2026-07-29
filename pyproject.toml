@@ -64,9 +64,14 @@ package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
+namespaces = true
 
 [tool.setuptools.package-data]
 "httk.placeholder" = ["py.typed"]
+# Add registry package data when this module grows registry shims, for example:
+# "httk.registry.placeholder" = ["py.typed"]
+# "httk.registry.entries.placeholder" = ["py.typed"]
+# "httk.registry.schemas.placeholder" = ["*.json", "LICENSE*", "README.md"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
