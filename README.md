@@ -8,7 +8,7 @@ When instantiating the template, rename in all of:
 
 - every `placeholder` occurrence in tracked files (`git grep placeholder`),
   including the package directories `src/httk/placeholder/` and
-  `src/httk/registry/placeholder/` and the dataset identifier
+  `src/httk/registry/io/placeholder/` and the dataset identifier
   `"httk.placeholder.example_dataset"`;
 - the bracketed `httk-[placeholder]` forms in this file (remove the brackets);
 - the repository URL/name itself (this file and `.github/` reference the
@@ -54,16 +54,18 @@ indices, `.index`.
 
 ## Registry
 
-When the module exposes a loader, adapter, command, provider, record, or schema,
-add an import-light shim under the matching `httk.registry` tier. The template
-includes an inactive loader example:
+When the module exposes a reader, writer, format adapter, serializer, command,
+provider, record, or schema, add an import-light shim under one of the reserved
+tiers: `httk.registry.cli.<module>`, `httk.registry.entries.<module>`,
+`httk.registry.io.<module>`, or `httk.registry.schemas.<module>`. The template
+includes an inactive reader example under the `io` tier:
 
 ```python
-# from httk.core.register import register_loader
+# from httk.core.register import register_reader
 #
-# register_loader(
+# register_reader(
 #     name="placeholder",
-#     loader="httk.placeholder.io:load",  # lazy "module:callable" — must exist when uncommented
+#     reader="httk.placeholder.io:load",  # lazy "module:callable" — must exist when uncommented
 #     extensions=(".placeholder",),
 # )
 ```
