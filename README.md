@@ -4,6 +4,17 @@
 template for [placeholder functionality]. Replace the placeholder namespace
 and description as the module takes shape.
 
+When instantiating the template, rename in all of:
+
+- every `placeholder` occurrence in tracked files (`git grep placeholder`),
+  including the package directories `src/httk/placeholder/` and
+  `src/httk/registry/placeholder/` and the dataset identifier
+  `"httk.placeholder.example_dataset"`;
+- the bracketed `httk-[placeholder]` forms in this file (remove the brackets);
+- the repository URL/name itself (this file and `.github/` reference the
+  repository only implicitly, but `docs/versioning.toml` and `pyproject.toml`
+  carry the distribution name).
+
 ## Description
 
 This template starts a small httk module with packaged data and report-channel
@@ -37,8 +48,9 @@ records per task with `httk.core.report.collect_reports`.
 ## Packaged datasets
 
 Package data through `httk.core.DatasetLoader` and load it lazily on
-first access. Plain JSON exposes `.data`; structured JSON-LD also exposes
-`.meta` and `.index`.
+first access. A plain JSON document yields `.data` with `.meta`/`.index` set
+to `None`; a structured JSON-LD document yields `.meta` and, when it declares
+indices, `.index`.
 
 ## Registry
 
@@ -47,11 +59,11 @@ add an import-light shim under the matching `httk.registry` tier. The template
 includes an inactive loader example:
 
 ```python
-import httk.core
-
-# httk.core.register_loader(
+# from httk.core.register import register_loader
+#
+# register_loader(
 #     name="placeholder",
-#     loader="httk.placeholder.io:load",
+#     loader="httk.placeholder.io:load",  # lazy "module:callable" — must exist when uncommented
 #     extensions=(".placeholder",),
 # )
 ```

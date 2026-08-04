@@ -97,6 +97,8 @@ quote-style = "preserve"
 pythonVersion = "3.12"
 include = ["src", "examples"]
 extraPaths = ["src"]
+# Resolve cross-distribution httk imports via the shared workspace venv when
+# present; pyright falls back to the active interpreter elsewhere (e.g. CI).
 venvPath = ".."
 venv = ".venv"
 reportMissingImports = true

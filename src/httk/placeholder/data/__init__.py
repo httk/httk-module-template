@@ -1,6 +1,8 @@
 """Packaged example data loaded lazily through :class:`httk.core.DatasetLoader`.
 
-The example is plain JSON, so its loader exposes only ``.data``.
+The example is plain JSON, so its loader yields ``.data`` with ``.meta`` and
+``.index`` set to ``None``; a structured JSON-LD document yields ``.meta`` and,
+when it declares indices, ``.index``.
 """
 
 import atexit
