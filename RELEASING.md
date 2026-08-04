@@ -88,12 +88,12 @@ python -m venv /tmp/httk-placeholder-test
 /tmp/httk-placeholder-test/bin/python -m pip install \
   --index-url https://test.pypi.org/simple/ \
   --extra-index-url https://pypi.org/simple/ httk-placeholder==0.1.0
-/tmp/httk-placeholder-test/bin/python -c "import httk.atomistic"
+/tmp/httk-placeholder-test/bin/python -c "import httk.placeholder"
 ```
 
 Replace `0.1.0` with the version being tested. Unlike `httk-core`, `httk-placeholder`
 has a runtime dependency (`httk-core`), so `--no-deps` is not appropriate here:
-`import httk.atomistic` pulls in `httk.core` at import time. The
+`import httk.placeholder` pulls in `httk.core` at import time. The
 `--extra-index-url` lets pip resolve that dependency (once it is published to the
 real PyPI) while the package under test comes from TestPyPI.
 

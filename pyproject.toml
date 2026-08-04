@@ -12,7 +12,7 @@ license-files = ["LICENSE"]
 requires-python = ">=3.12"
 authors = [{ name = "Rickard Armiento", email = "gitcommits@armiento.net" }]
 dependencies = [
-  "httk-core>=2.0.0,<3",
+  "httk-core>=2.0.2,<3",
 ]
 keywords = [
   "Materials Discovery",
@@ -40,6 +40,7 @@ Issues = "https://github.com/httk/httk-placeholder/issues"
 [project.optional-dependencies]
 dev = [
   "pytest>=8.0",
+  "pytest-xdist>=3.6",
   "ruff>=0.16,<0.17",
   "pyright",
   "mypy"
@@ -67,15 +68,12 @@ where = ["src"]
 namespaces = true
 
 [tool.setuptools.package-data]
-"httk.placeholder" = ["py.typed"]
-# Add registry package data when this module grows registry shims, for example:
-# "httk.registry.placeholder" = ["py.typed"]
-# "httk.registry.entries.placeholder" = ["py.typed"]
-# "httk.registry.schemas.placeholder" = ["*.json", "LICENSE*", "README.md"]
+"httk.placeholder" = ["py.typed", "data/*.json.gz"]
+"httk.registry.placeholder" = ["py.typed"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "-m 'not extended'"
+addopts = "-n 16 -m 'not extended'"
 markers = [
   "extended: full-depth test case; selected only by the extended test profile",
 ]
@@ -98,7 +96,9 @@ quote-style = "preserve"
 [tool.pyright]
 pythonVersion = "3.12"
 include = ["src", "examples"]
-extraPaths = ["src"]  
+extraPaths = ["src"]
+venvPath = ".."
+venv = ".venv"
 reportMissingImports = true
 
 [tool.mypy]

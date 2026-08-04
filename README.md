@@ -1,41 +1,62 @@
-# httk-[placeholder]
+# *httk-[placeholder]*
 
-*httk-[placeholder]* is a [*httk₂*](https://github.com/httk/httk2) module providing [placeholder functionality].
+*httk-[placeholder]* is a [*httk₂*](https://github.com/httk/httk2) module
+template for [placeholder functionality]. Replace the placeholder namespace
+and description as the module takes shape.
+
+## Description
+
+This template starts a small httk module with packaged data and report-channel
+diagnostics.
+
+## Install
+
+```console
+python -m pip install httk-placeholder
+```
+
+For local development:
+
+```console
+python -m pip install -e ".[dev,docs]"
+```
+
+## Development
+
+Use `make check` for formatting, type checks, and the default test profile.
+Use `make ci` for the extended test profile as well. The default profile skips
+tests marked `extended`; run `make test-extended` to select them explicitly.
+
+## Reporting
+
+Library code logs with `logging.getLogger(__name__)`, which places modules
+under the `httk.*` reporting hierarchy. Applications call
+`httk.core.report.configure_reporting` for console output; servers can collect
+records per task with `httk.core.report.collect_reports`.
+
+## Packaged datasets
+
+Package data through `httk.core.DatasetLoader` and load it lazily on
+first access. Plain JSON exposes `.data`; structured JSON-LD also exposes
+`.meta` and `.index`.
 
 ## Registry
 
-When the module exposes a loader, adapter, command, provider, record, or
-schema, add an import-light shim under the matching `httk.registry` tier. The
-template keeps the example here rather than adding an inactive registry
-package; replace `placeholder` with the module's existing namespace name:
+When the module exposes a loader, adapter, command, provider, record, or schema,
+add an import-light shim under the matching `httk.registry` tier. The template
+includes an inactive loader example:
 
 ```python
-# src/httk/registry/placeholder/__init__.py
-# from httk.core.register import register_loader
-# register_loader(name="placeholder", loader="httk.placeholder.io:load", extensions=(".placeholder",))
+import httk.core
 
-# src/httk/registry/cli/placeholder/__init__.py
-# from httk.core import register_cli_command
-# register_cli_command("placeholder", "httk.placeholder.cli:command", "run placeholder")
-
-# src/httk/registry/entries/placeholder/__init__.py
-# from httk.core import register_entry_provider, register_entry_record
-# register_entry_provider(name="placeholder", factory="httk.placeholder.entries:Provider")
-# register_entry_record(name="placeholder-record", record="httk.placeholder.records:Record")
-
-# src/httk/registry/schemas/placeholder/__init__.py
-# from httk.core import register_entry_type_schema, register_property_definition
-# register_entry_type_schema(
-#     definition_id="https://schemas.example.org/defs/v1/entrytypes/placeholder",
-#     resource="httk.registry.schemas.placeholder:placeholder.json",
-# )
-# register_property_definition(
-#     definition_id="https://schemas.example.org/defs/v1/properties/placeholder/value",
-#     resource="httk.registry.schemas.placeholder:value.json",
+# httk.core.register_loader(
+#     name="placeholder",
+#     loader="httk.placeholder.io:load",
+#     extensions=(".placeholder",),
 # )
 ```
 
-Keep these shims limited to registration calls and lazy `"module:attribute"`
-references; importing `httk.core` discovers them without importing the module
-implementation. See the [httk-core registry guide](https://docs.httk.org/httk-core/registry.html)
-for the tiers, identity rules, and module layout.
+For entry-type schemas, use `register_entry_type_definition`; property schemas
+use `register_property_definition`. See the
+[httk-core documentation index](https://docs.httk.org/httk-core/) for registry
+tiers, identity rules, and module layout.

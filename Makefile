@@ -14,7 +14,7 @@ docs-live:
 	HTTK_DOCS_BASE_URL=$(DOCS_BASE_URL) sphinx-autobuild docs docs/_build/html
 
 docs-clean:
-	rm -rf docs/_build docs/reference/autoapi
+	rm -rf docs/_build docs/reference/autoapi docs/examples
 
 # Refresh the committed intersphinx inventories (the one docs task that uses the
 # network); docs builds themselves resolve against these vendored files offline.
@@ -23,6 +23,7 @@ docs-inventories:
 	# Requires a committed, current docs/requirements.lock; dependency release docs must be published.
 	$(PYTHON) -m httk.core.docs lock-check
 	$(PYTHON) -m httk.core.docs refresh-inventories --base-url $(DOCS_BASE_URL) --channel release
+
 # Regenerate the portable documentation lock (network target).
 docs-lock:
 	$(PYTHON) -m httk.core.docs lock
@@ -31,7 +32,7 @@ docs-lock:
 # (network target; the lock installation and build are intentionally transparent).
 docs-lock-check: docs-clean
 	@set -eu; \
-	check_dir=$$(mktemp -d "${TMPDIR:-/tmp}/httk-placeholder-docs-lock-check.XXXXXX"); \
+	check_dir=$$(mktemp -d "$${TMPDIR:-/tmp}/httk-placeholder-docs-lock-check.XXXXXX"); \
 	trap 'rm -rf "$$check_dir"' EXIT; \
 	env -u PYTHONPATH -u PYTHONHOME $(PYTHON) -m venv "$$check_dir/venv"; \
 	env -u PYTHONPATH -u PYTHONHOME "$$check_dir/venv/bin/python" -m pip install -r docs/requirements.lock; \

@@ -10,7 +10,7 @@ documentation of *httk₂* as a whole, see [docs.httk.org](https://docs.httk.org
 
 - **API reference**: {doc}`reference/index`
 - **Examples notebook**: {doc}`notebooks/examples`
-````
+```
 
 ## Install
 
@@ -24,9 +24,9 @@ python -m pip install -e .
 ## Usage example
 
 ```python
-from httk.[placeholder] import hello_world
+from httk.placeholder import atomic_number
 
-hello_world()
+atomic_number("He")
 ```
 
 ```{toctree}
@@ -35,4 +35,5 @@ hello_world()
 
 reference/index
 notebooks/examples
+examples/index
 ```

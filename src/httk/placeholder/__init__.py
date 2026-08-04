@@ -1,3 +1,5 @@
-from .api import hello_world
+"""A minimal httk module template."""
 
-__all__ = ["hello_world"]
+from .api import atomic_number
+
+__all__ = ["atomic_number"]
