@@ -10,7 +10,11 @@ _LOGGER = logging.getLogger(__name__)
 
 
 def atomic_number(symbol: str) -> int | None:
-    """Return the atomic number for a noble-gas symbol, or ``None`` if unknown."""
+    """Return the atomic number for a noble-gas symbol, or ``None`` if unknown.
+
+    :param symbol: Chemical element symbol to look up.
+    :return: Atomic number, or ``None`` when the symbol is unknown.
+    """
     number = _example_dataset().data.get(symbol)
     if number is None:
         _LOGGER.warning("unknown element symbol %r", symbol)
