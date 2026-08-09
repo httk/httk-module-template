@@ -36,4 +36,5 @@ atomic_number("He")
 reference/index
 notebooks/examples
 examples/index
+testing
 ```

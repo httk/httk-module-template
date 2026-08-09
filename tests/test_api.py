@@ -1,10 +1,18 @@
+import pytest
 from httk.core.report import collect_reports
 
 from httk.placeholder import atomic_number
 
 
-def test_known_symbol() -> None:
-    assert atomic_number("He") == 2
+@pytest.mark.parametrize(
+    ("symbol", "expected"),
+    [
+        ("He", 2),
+        pytest.param("Ne", 10, marks=pytest.mark.extended),
+    ],
+)
+def test_known_symbol(symbol: str, expected: int) -> None:
+    assert atomic_number(symbol) == expected
 
 
 def test_unknown_symbol_is_reported() -> None:
