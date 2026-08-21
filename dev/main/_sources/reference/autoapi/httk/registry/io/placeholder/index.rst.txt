@@ -1,0 +1,11 @@
+httk.registry.io.placeholder
+============================
+
+.. py:module:: httk.registry.io.placeholder
+
+.. autoapi-nested-parse::
+
+   Import-light registry shim for the placeholder module.
+
+
+

@@ -1,0 +1,30 @@
+httk.placeholder.api
+====================
+
+.. py:module:: httk.placeholder.api
+
+.. autoapi-nested-parse::
+
+   Small API example backed by the packaged element dataset.
+
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   httk.placeholder.api.atomic_number
+
+
+Module Contents
+---------------
+
+.. py:function:: atomic_number(symbol)
+
+   Return the atomic number for a noble-gas symbol, or ``None`` if unknown.
+
+   :param symbol: Chemical element symbol to look up.
+   :return: Atomic number, or ``None`` when the symbol is unknown.
+
+

@@ -1,0 +1,6 @@
+# Show packaged data loading and collected httk diagnostics.
+
+```{literalinclude} ../../examples/example.py
+:language: python
+:lines: 2-
+```

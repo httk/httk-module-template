@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "version": "dev:main",
+  "pages": [
+    "_modules/httk/placeholder/api.html",
+    "_modules/index.html",
+    "examples/example.html",
+    "examples/index.html",
+    "genindex.html",
+    "index.html",
+    "notebooks/examples.html",
+    "py-modindex.html",
+    "reference/autoapi/httk/placeholder/api/index.html",
+    "reference/autoapi/httk/placeholder/data/index.html",
+    "reference/autoapi/httk/placeholder/index.html",
+    "reference/autoapi/httk/registry/io/placeholder/index.html",
+    "reference/autoapi/index.html",
+    "reference/index.html",
+    "search.html",
+    "testing.html"
+  ]
+}

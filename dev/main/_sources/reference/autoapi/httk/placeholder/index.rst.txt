@@ -1,0 +1,40 @@
+httk.placeholder
+================
+
+.. py:module:: httk.placeholder
+
+.. autoapi-nested-parse::
+
+   A minimal httk module template.
+
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /reference/autoapi/httk/placeholder/api/index
+   /reference/autoapi/httk/placeholder/data/index
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   httk.placeholder.atomic_number
+
+
+Package Contents
+----------------
+
+.. py:function:: atomic_number(symbol)
+
+   Return the atomic number for a noble-gas symbol, or ``None`` if unknown.
+
+   :param symbol: Chemical element symbol to look up.
+   :return: Atomic number, or ``None`` when the symbol is unknown.
+
+

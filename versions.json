@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "project": "httk-placeholder",
+  "url": "https://docs.httk.org/httk-placeholder",
+  "source_commit": "801f01f94617dd9f51f5f36e26a22cad636999f4",
+  "default": {
+    "name": "dev:main",
+    "path": "dev/main/",
+    "channel": "dev"
+  },
+  "versions": [
+    {
+      "name": "dev:main",
+      "path": "dev/main/",
+      "channel": "dev"
+    }
+  ]
+}
